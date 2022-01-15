@@ -16,7 +16,6 @@ app.get("/api", (req, res) => {
 
 // All other GET requests not handled before will return our React app
 app.get('*', (req, res) => {
-  console.log("running");
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
 });
 
