@@ -10,7 +10,6 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-// const OPENAI_API_KEY = "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";
 
 const openai = new OpenAI(OPENAI_API_KEY);
 

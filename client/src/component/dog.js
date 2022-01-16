@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 function Dog() {
   const classes = useStyles();
   const [inputMsg, setInputMsg] = useState("");
-  const [outputMsg, setOutputMsg] = useState("Hey!");
+  const [outputMsg, setOutputMsg] = useState("Hey! Ask me any questions!");
 
 
   const handleClickOutputMsg = () => {
