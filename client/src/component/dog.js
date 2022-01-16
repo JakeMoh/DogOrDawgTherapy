@@ -1,11 +1,6 @@
 import { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Avatar, TextField, Button, Container, Grid } from '@mui/material';
-import OpenAI from 'openai-api';
-
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
-
-const openai = new OpenAI(OPENAI_API_KEY);
 
 const useStyles = makeStyles({
   textField: {
@@ -27,23 +22,35 @@ function Dog() {
   const [inputMsg, setInputMsg] = useState("");
   const [outputMsg, setOutputMsg] = useState("Hey!");
 
+
   const handleClickOutputMsg = () => {
-    (async () => {
-      const gptResponse = await openai.complete({
-        engine: 'davinci',
-        prompt:`You: ${inputMsg}\nFriend:`,
-        temperature:0.01,
-        max_tokens:60,
-        top_p:0.3,
-        frequency_penalty:0.5,
-        presence_penalty:0.0,
-        stop:["You:"]
-    });
+    fetch('http://localhost:3001/api/dog', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({ input: inputMsg}), // Use your own property name / key
+    })
+      .then((res) => res.json())
+      .then((result) => setOutputMsg(result.outputMsg))
+      .catch((err) => console.log('error' + err))
+  }
+
+  // const handleClickOutputMsg = () => {
+  //   (async () => {
+  //     const gptResponse = await openai.complete({
+  //       engine: 'davinci',
+  //       prompt:`You: ${inputMsg}\nFriend:`,
+  //       temperature:0.01,
+  //       max_tokens:60,
+  //       top_p:0.3,
+  //       frequency_penalty:0.5,
+  //       presence_penalty:0.0,
+  //       stop:["You:"]
+  //   });
     
-      console.log(gptResponse.data);
-      setOutputMsg(gptResponse.data.choices[0].text);
-    })();
-  };
+  //     console.log(gptResponse.data);
+  //     setOutputMsg(gptResponse.data.choices[0].text);
+  //   })();
+  // };
 
   const handleTypeInputMsg = (event) => {
     setInputMsg(event.target.value);
