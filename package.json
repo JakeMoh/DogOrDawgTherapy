@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/JakeMoh/DogOrDawgTherapy#readme",
   "dependencies": {
+    "@mui/material": "^5.2.8",
     "express": "^4.17.2",
     "openai-api": "^1.2.6"
   }

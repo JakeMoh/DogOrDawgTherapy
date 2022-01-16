@@ -5,6 +5,8 @@ import LandingPage from './component/landingPage'
 import Dog from './component/dog'
 import Dawg from './component/dawg'
 
+console.log(process.env.OPENAI_API_KEY);
+
 function App() {
   return (
     <div className="App">
