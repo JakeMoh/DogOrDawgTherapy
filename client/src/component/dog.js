@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Avatar, TextField, Button, Container, Grid } from '@mui/material';
 
+const hostName = "https://dog-or-dawg-therapy.herokuapp.com/";
+// const hostName = "http://localhost:3001";
+
 const useStyles = makeStyles({
   textField: {
     width: "120vh",
@@ -24,7 +27,7 @@ function Dog() {
 
 
   const handleClickOutputMsg = () => {
-    fetch('http://localhost:3001/api/dog', {
+    fetch(hostName + '/api/dog', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({ input: inputMsg}), // Use your own property name / key
