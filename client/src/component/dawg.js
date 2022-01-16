@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { makeStyles } from '@mui/styles';
 import { Avatar, TextField, Button, Container, Grid } from '@mui/material';
 
-const hostName = "https://dog-or-dawg-therapy.herokuapp.com/";
+const hostName = "https://dog-or-dawg-therapy.herokuapp.com";
 // const hostName = "http://localhost:3001";
 
 const useStyles = makeStyles({
