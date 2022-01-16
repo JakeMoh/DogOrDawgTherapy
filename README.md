@@ -1,6 +1,6 @@
 # Dog or Dawg Therapy: nwHacks 2022
 
-## Kelly Kim, Sophia Kim, Jhonathan Tam, Jake Moh
+## Kelly Kim, Sophia Kim, Johnathan Tam, Jake Moh
 
 ### Steps to deploy locally using node.js server
 ```
